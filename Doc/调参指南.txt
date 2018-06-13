@@ -1,0 +1,28 @@
+LGBM CV调参指南：
+
+	LGBM = lgb.LGBMClassifier( 
+                    max_depth=5,
+					n_estimators=200,
+                    learning_rate =0.1,     
+                    objective = 'binary',
+                    num_leaves=31,
+                    boosting_type='dart',
+					max_bin=25,
+					min_data_in_leaf=20，
+					feature_fraction =0.8，
+					lambda_l1=0.5，
+					lambda_l2=0.5
+			)
+	
+1、固定learning_rate为0.1，首先调n_estimators     
+	param_n_estimators = {'n_estimators': list(range(100,500,10))}
+	
+2、param_acc1 = {'max_depth':list(range(3,9,1)), 'num_leaves':list(range(8,200,4))}
+
+3、param_acc2 = {'max_bin':list(range(1,50,5)), 'min_data_in_leaf':list(range(10,200,5))}
+
+4、param_feature_fraction = {'feature_fraction':list(np.arange(0.1,1.0,0.1))}
+
+5、param_guonihe2 = {'lambda_l1':list(np.arange(0.1,1.0,0.1)), 'lambda_l2':list(np.arange(0.1,1.0,0.1))}
+
+6、n_estimators 翻倍，learning_rate减倍，同比例变化 
