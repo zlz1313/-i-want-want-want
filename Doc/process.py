@@ -168,7 +168,7 @@
         --pre_user_num: 24911 
     +- OffLineTest 
     +-OnLine
-        --F1 Score：
+        --F1 Score：0.819976
 		
 0613-1:
 	# 0608-2的基础上
@@ -206,5 +206,14 @@
         --pre_user_num: 24902 
     +- OffLineTest 
     +-OnLine
-        --F1 Score：
+        --F1 Score：0.820334
 
+0614-1:
+	# 0613-1的基础上
+	# add:前2个cnt的统计信息
+    +- OnlineTest:  feature_num: 108 
+        --F1 Score: 0.802249, yuzhi: 0.4
+        --pre_user_num: 24763 
+    +- OffLineTest 
+    +-OnLine
+        --F1 Score：0.819344
